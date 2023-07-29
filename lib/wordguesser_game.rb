@@ -5,8 +5,12 @@ class WordGuesserGame
 
   # Get a word from remote "random word" service
 
+  attr_accessor :word, :guesses, :wrong_guesses
+  
   def initialize(word)
     @word = word
+    @guesses = ''
+    @wrong_guesses = ''
   end
 
   # You can test it by installing irb via $ gem install irb

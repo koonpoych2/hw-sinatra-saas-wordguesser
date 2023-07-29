@@ -62,5 +62,9 @@ class WordGuesserApp < Sinatra::Base
     ### YOUR CODE HERE ###
     erb :lose # You may change/remove this line
   end
+
+  post '/new' do
+    "Hello World"
+  end
   
 end
