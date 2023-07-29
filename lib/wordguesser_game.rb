@@ -53,8 +53,21 @@ class WordGuesserGame
         result += '-'
       end
       }
-
       return result
+  end
+
+  def check_win_or_lose()
+    # Win when all letters guessed
+      if @guesses.chars.sort == @word.chars.sort
+        return :win
+    # Lose after worng 7 guesses
+      elsif @wrong_guesses.length == 7 
+        return :lose
+    # Continue play if neither win or lose
+      else
+        return :play
+      end
+
   end
 
   # You can test it by installing irb via $ gem install irb
