@@ -14,7 +14,18 @@ class WordGuesserGame
   end
 
   def guess(letter)
+
+    # Raise error when string empty or nil or not alphabet
+    if letter.nil? 
+      raise ArgumentError, 'Argument should not empty '
+    elsif letter.empty?
+      raise ArgumentError, 'Argument should not a nil value'
+    elsif !letter.match?(/[[:alpha:]]/)
+      raise ArgumentError, 'Argument should be an alphabet'
+    end
+
     letter = letter.downcase # Convert the letter to lowercase for case insensitivity
+
     if @guesses.include?(letter) || @wrong_guesses.include?(letter)
       # If the letter has already been guessed (correctly or incorrectly), return false
       return false
@@ -28,7 +39,21 @@ class WordGuesserGame
       return true
     end
 
+ 
+
   end 
+  
+  def word_with_guesses()
+    result = ""
+    # Show correct guesses letter
+    @word.each_char { |letter| 
+      if @guesses.include?(letter)
+        result += letter
+      else
+        result += '-'
+      end
+      }
+  end
 
   # You can test it by installing irb via $ gem install irb
   # and then running $ irb -I. -r app.rb
