@@ -13,6 +13,23 @@ class WordGuesserGame
     @wrong_guesses = ''
   end
 
+  def guess(letter)
+    letter = letter.downcase # Convert the letter to lowercase for case insensitivity
+    if @guesses.include?(letter) || @wrong_guesses.include?(letter)
+      # If the letter has already been guessed (correctly or incorrectly), return false
+      return false
+    elsif @word.include?(letter)
+      # If the letter is in the word and has not been guessed yet, add it to the correct guesses list
+      @guesses += letter
+      return true
+    else
+      # If the letter is not in the word and has not been guessed yet, add it to the wrong guesses list
+      @wrong_guesses += letter
+      return true
+    end
+
+  end 
+
   # You can test it by installing irb via $ gem install irb
   # and then running $ irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> WordGuesserGame.get_random_word
