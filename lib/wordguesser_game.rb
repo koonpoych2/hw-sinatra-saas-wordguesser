@@ -48,9 +48,9 @@ class WordGuesserGame
     # Show correct guesses letter
     @word.each_char { |letter| 
       if @guesses.include?(letter)
-        result += letter
+        print letter
       else
-        result += '-'
+        print '-'
       end
       }
   end
