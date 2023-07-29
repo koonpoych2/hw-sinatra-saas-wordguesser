@@ -44,15 +44,17 @@ class WordGuesserGame
   end 
   
   def word_with_guesses()
-    result = ""
+    result = ''
     # Show correct guesses letter
     @word.each_char { |letter| 
       if @guesses.include?(letter)
-        print letter
+        result += letter
       else
-        print '-'
+        result += '-'
       end
       }
+
+      return result
   end
 
   # You can test it by installing irb via $ gem install irb
